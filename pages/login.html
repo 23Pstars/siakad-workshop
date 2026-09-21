@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIAKAD — Login</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Login SIAKAD</h1>
+    <p>Masuk menggunakan NIM dan password</p>
+  </div>
+
+  <nav>
+    <a href="../index.html">&larr; Kembali ke Beranda</a>
+  </nav>
+
+  <main>
+    <div class="panel" style="max-width: 400px;">
+      <form id="form-login">
+        <label for="nim">NIM</label>
+        <input type="text" id="nim" placeholder="contoh: F1D024001">
+
+        <label for="password">Password</label>
+        <input type="password" id="password">
+
+        <button type="submit">Masuk</button>
+        <div id="pesan"></div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("form-login").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nim = document.getElementById("nim").value.trim();
+      const password = document.getElementById("password").value;
+      const pesan = document.getElementById("pesan");
+
+      pesan.className = "pesan-sukses";
+      pesan.textContent = "Login berhasil. Selamat datang, " + nim + "!";
+    });
+  </script>
+</body>
+</html>
