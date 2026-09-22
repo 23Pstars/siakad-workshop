@@ -38,6 +38,12 @@
       const password = document.getElementById("password").value;
       const pesan = document.getElementById("pesan");
 
+      if (nim === "") {
+        pesan.className = "pesan-error";
+        pesan.textContent = "NIM tidak boleh kosong.";
+        return;
+      }
+
       pesan.className = "pesan-sukses";
       pesan.textContent = "Login berhasil. Selamat datang, " + nim + "!";
     });
