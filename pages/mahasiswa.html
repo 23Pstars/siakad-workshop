@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIAKAD — Mahasiswa</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Data Mahasiswa</h1>
+    <p>Daftar mahasiswa beserta IPK</p>
+  </div>
+
+  <nav>
+    <a href="../index.html">&larr; Kembali ke Beranda</a>
+  </nav>
+
+  <main>
+    <div class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Jumlah Mata Kuliah</th>
+            <th>IPK</th>
+          </tr>
+        </thead>
+        <tbody id="tabel-mahasiswa"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/data.js"></script>
+  <script>
+    const tbody = document.getElementById("tabel-mahasiswa");
+    for (const mhs of MAHASISWA) {
+      const baris = document.createElement("tr");
+      baris.innerHTML =
+        "<td>" + mhs.nim + "</td>" +
+        "<td>" + mhs.nama + "</td>" +
+        "<td>" + mhs.nilai.length + "</td>" +
+        "<td>" + hitungIPK(mhs.nilai).toFixed(2) + "</td>";
+      tbody.appendChild(baris);
+    }
+  </script>
+</body>
+</html>
