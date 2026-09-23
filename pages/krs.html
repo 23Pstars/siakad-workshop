@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIAKAD — KRS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Kartu Rencana Studi (KRS)</h1>
+    <p>Pilih mata kuliah semester ini — maksimal 24 SKS</p>
+  </div>
+
+  <nav>
+    <a href="../index.html">&larr; Kembali ke Beranda</a>
+  </nav>
+
+  <main>
+    <div class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>Pilih</th>
+            <th>Kode</th>
+            <th>Mata Kuliah</th>
+            <th>SKS</th>
+          </tr>
+        </thead>
+        <tbody id="tabel-krs"></tbody>
+      </table>
+      <p><strong>Total SKS: <span id="total-sks">0</span></strong></p>
+      <div id="pesan"></div>
+    </div>
+  </main>
+
+  <script src="../js/data.js"></script>
+  <script>
+    const MAKS_SKS = 24;
+    const tbody = document.getElementById("tabel-krs");
+
+    for (const mk of MATAKULIAH) {
+      const baris = document.createElement("tr");
+      baris.innerHTML =
+        '<td><input type="checkbox" data-sks="' + mk.sks + '"></td>' +
+        "<td>" + mk.kode + "</td>" +
+        "<td>" + mk.nama + "</td>" +
+        "<td>" + mk.sks + "</td>";
+      tbody.appendChild(baris);
+    }
+
+    tbody.addEventListener("change", function () {
+      let total = 0;
+      document.querySelectorAll("#tabel-krs input:checked").forEach(function (cb) {
+        total += Number(cb.dataset.sks);
+      });
+      document.getElementById("total-sks").textContent = total;
+
+      const pesan = document.getElementById("pesan");
+      if (total > MAKS_SKS) {
+        pesan.className = "pesan-error";
+        pesan.textContent = "Total SKS melebihi batas " + MAKS_SKS + " SKS.";
+      } else {
+        pesan.textContent = "";
+      }
+    });
+  </script>
+</body>
+</html>
