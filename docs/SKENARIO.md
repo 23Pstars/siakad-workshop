@@ -54,7 +54,7 @@ Karena setiap orang membuat **file yang berbeda**, sesi ini **tidak akan menimbu
 
 **1. Clone repository**
 ```bash
-git clone https://github.com/[org]/siakad-workshop.git
+git clone https://github.com/23Pstars/siakad-workshop.git
 cd siakad-workshop
 ```
 

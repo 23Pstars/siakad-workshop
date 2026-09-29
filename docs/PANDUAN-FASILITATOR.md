@@ -35,7 +35,7 @@ Kunci jawaban ada di bagian 7.
 1. Buat repository **kosong** di GitHub (tanpa README), misalnya `[org]/siakad-workshop`. Sebaiknya **Public**.
 2. Dari folder project ini:
    ```bash
-   git remote add origin https://github.com/[org]/siakad-workshop.git
+   git remote add origin https://github.com/23Pstars/siakad-workshop.git
    git push -u origin --all
    ```
    `--all` wajib dipakai agar branch `latihan/judul-dashboard` ikut terkirim.
@@ -84,7 +84,7 @@ Kunci jawaban ada di bagian 7.
 ## 4. Naskah demo (memakai repo ini)
 
 ```bash
-git clone https://github.com/[org]/siakad-workshop.git
+git clone https://github.com/23Pstars/siakad-workshop.git
 cd siakad-workshop
 git log --oneline                        # slide 7: history nyata
 git show HEAD~1 --stat                   # siapa, kapan, file apa
